@@ -4,16 +4,16 @@ import './App.css'
 function App() {
   const [count1, setCount1] = useState(0)
   const [count2, setCount2] = useState(0)
-  const [server, setServer] = useState(true)
+  const [server, setServer] = useState(1)
 
   return (
     <div>
-      <h1>Who's Serving: </h1>
+      <h1>Who's Serving: Player {server}</h1>
       <div className="card">
-        <button onClick={() => {setCount1((count) => count + 1); setServer((server) => server = (count1 + count2 % 4 >= 2))}}>
+        <button onClick={() => {setCount1((count) => count + 1); setServer(() => (Math.floor((count1 + count2)/2) % 2 + 1))}}>
           P2
         </button>
-        <button onClick={() => {setCount2((count) => count + 1); setServer((server) => server = (count1 + count2 % 4 >= 2))}}>
+        <button onClick={() => {setCount2((count) => count + 1); setServer(() => (Math.floor((count1 + count2)/2) % 2 + 1))}}>
           P2
         </button>
         <p>
