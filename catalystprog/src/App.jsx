@@ -20,17 +20,17 @@ function App() {
       <h1>Ping Pong Simulator</h1>
       {!endpoint && <h2>Who's Serving: Player {server}</h2>}
       <div className="card">
-        {!endpoint && <button onClick={() => {setCount1((count) => count + 1); setServer(() => (Math.floor((count1 + count2 + 1) / 2) % 2 + 1)); setWinning(() => 1); setEnd(() => (count1 + 1 >= 11))}}>
+        {!endpoint && <button className="button" onClick={() => {setCount1((count) => count + 1); setServer(() => (Math.floor((count1 + count2 + 1) / 2) % 2 + 1)); setWinning(() => 1); setEnd(() => ((count1 + 1 >= 11) && count1 > count2))}}>
           P1 point
         </button>}
-        {!endpoint && <button onClick={() => {setCount2((count) => count + 1); setServer(() => (Math.floor((count1 + count2 + 1) / 2) % 2 + 1)); setWinning(() => 2); setEnd(() => (count2 + 1 >= 11))}}>
+        {!endpoint && <button className="button" onClick={() => {setCount2((count) => count + 1); setServer(() => (Math.floor((count1 + count2 + 1) / 2) % 2 + 1)); setWinning(() => 2); setEnd(() => ((count2 + 1 >= 11) && count2 > count1))}}>
           P2 point
         </button>}
-        <button onClick={() => resetGame()}>
-          Reset Game
-          </button>
         {endpoint && <h1>Player {winningPlayer} wins!</h1>}
       </div>
+      <button className="button" id="reset" onClick={() => resetGame()}>
+          Reset Game
+          </button>
       <p>score is {count1} : {count2}</p>
     </div>
   )
