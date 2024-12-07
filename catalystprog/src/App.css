@@ -22,3 +22,25 @@
   transition: border-color 0.25s;
   margin: 20px;
 }
+
+.inner-list-element {
+  display: inline-block;
+  width: 400px;
+  text-align: center;
+}
+
+.list-element {
+  display: flex;
+}
+.list-element:first-child{
+  font-weight: bold;
+}
+
+.list {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
