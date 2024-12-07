@@ -38,9 +38,7 @@ function App() {
   return (
     <div>
       <h1>Ping Pong Score Tracker</h1>
-      <div>
-        <button className="decorative-button"></button>
-      </div>
+      <div className="decorative-div"></div>
       {!endpoint && <h2>Who's Serving: {server == 1 && <span className="playerName1">Player 1</span>}
                                        {server == 2 && <span className="playerName2">Player 2</span>}</h2>}
       <h2>Score is {count1} : {count2}</h2>
