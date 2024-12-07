@@ -31,10 +31,10 @@ function App() {
     setEnd(() => false);
   }
 
-  function whoServes(){
-    if(winBy > 11){
+  function whoServes(winValue){
+    if(winValue > 11){
       setServeTemp(() => 5);
-    }else {setServeTemp(() => 5);}
+    }else {setServeTemp(() => 2);}
   }
 
   let matchesList = matches.map((match) => <li className="list-element">
@@ -47,7 +47,7 @@ function App() {
     <div>
       <h1>Ping Pong Score Tracker</h1>
       <div className="till"><label id="drop">Play to:</label>
-      <select name="points" id="points" onChange={() => {setwinBy(event.target.value); resetGame(); whoServes()}}>
+      <select name="points" id="points" onChange={() => {setwinBy(event.target.value); resetGame(); whoServes(event.target.value)}}>
         <option value="11">11</option>
         <option value="21">21</option>
       </select></div>
