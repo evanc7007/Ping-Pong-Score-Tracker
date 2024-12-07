@@ -52,10 +52,13 @@ h1 {
 
 #p1Button{
   background-color: #1d50a2;
+  font-size: 30px;
+  font: bold;
 }
 #p2Button{
   background-color: #9e3d3e;
-
+  font-size: 30px;
+  font: bold
 }
 Button:hover {
   border-color: #bbb7da;
@@ -63,7 +66,7 @@ Button:hover {
 
 .small-button {
   height:50px;
-  width: 175px;
+  width: 180px;
   border-radius: 12px;
   text-align: center;
   border: 1px solid transparent;
@@ -83,6 +86,25 @@ Button:hover {
   border-radius: 12px;
   display: inline-block;  
   background-color: #55576c;
+}
+
+#drop {
+  margin-right: 10px;
+  font-size: x-large;
+}
+
+.till {
+  margin-top: 20px;
+  margin-bottom: 14px
+}
+
+#points {
+  position: relative;
+  bottom: 1px;
+  height: 35px;
+  width: 50px;
+  border-radius: 12px;
+  font-size: larger;
 }
 
 .playerName1 {

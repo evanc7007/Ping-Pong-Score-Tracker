@@ -11,6 +11,8 @@ function App() {
   const [showMatches, setShowMatches] = useState(false);
   const [total1, setTotal1] = useState(0);
   const [total2, setTotal2] = useState(0);
+  const [winBy, setwinBy] = useState(11);
+  const [serveTemp, setServeTemp] = useState(2);
 
   function resetGame(){
     if(endpoint){
@@ -29,6 +31,12 @@ function App() {
     setEnd(() => false);
   }
 
+  function whoServes(){
+    if(winBy > 11){
+      setServeTemp(() => 5);
+    }else {setServeTemp(() => 5);}
+  }
+
   let matchesList = matches.map((match) => <li className="list-element">
     <span className="inner-list-element">{match.winner}</span>
     <span className="inner-list-element">{match.p1Score}</span>
@@ -38,16 +46,21 @@ function App() {
   return (
     <div>
       <h1>Ping Pong Score Tracker</h1>
+      <div className="till"><label id="drop">Play to:</label>
+      <select name="points" id="points" onChange={() => {setwinBy(event.target.value); resetGame(); whoServes()}}>
+        <option value="11">11</option>
+        <option value="21">21</option>
+      </select></div>
       <div className="decorative-div"></div>
       {!endpoint && <h2>Who's Serving: {server == 1 && <span className="playerName1">Player 1</span>}
                                        {server == 2 && <span className="playerName2">Player 2</span>}</h2>}
       <h2>Score is {count1} : {count2}</h2>
       <div className="card">
-        {!endpoint && <button className="button" id="p1Button" onClick={() => {setCount1((count) => count + 1); setServer(() => (Math.floor((count1 + count2 + 1) / 2) % 2 + 1)); setWinning(() => 1); setEnd(() => ((count1 + 1 >= 11) && count1 > count2))}}>
-          P1 point
+        {!endpoint && <button className="button" id="p1Button" onClick={() => {setCount1((count) => count + 1); setServer(() => (Math.floor((count1 + count2 + 1) / serveTemp) % 2 + 1)); setWinning(() => 1); setEnd(() => ((count1 + 1 >= winBy) && count1 > count2))}}>
+          P1 Point
         </button>}
-        {!endpoint && <button className="button" id="p2Button" onClick={() => {setCount2((count) => count + 1); setServer(() => (Math.floor((count1 + count2 + 1) / 2) % 2 + 1)); setWinning(() => 2); setEnd(() => ((count2 + 1 >= 11) && count2 > count1))}}>
-          P2 point
+        {!endpoint && <button className="button" id="p2Button" onClick={() => {setCount2((count) => count + 1); setServer(() => (Math.floor((count1 + count2 + 1) / serveTemp) % 2 + 1)); setWinning(() => 2); setEnd(() => ((count2 + 1 >= winBy) && count2 > count1))}}>
+          P2 Point
         </button>}
         {endpoint && <h1>Player {winningPlayer} wins!</h1>}
       </div>
