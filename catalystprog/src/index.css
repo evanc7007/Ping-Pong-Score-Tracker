@@ -64,6 +64,10 @@ Button:hover {
   border-color: #bbb7da;
 }
 
+select:hover {
+  border-color: #bbb7da;
+}
+
 .small-button {
   height:50px;
   width: 180px;
